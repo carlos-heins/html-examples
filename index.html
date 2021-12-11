@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios HTML</title>
+    <style>
+        #conteudo {
+            padding: 25px 0px;
+        }
+        header {
+            background-color: #333366;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: silver;
+            text-align: center;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercícios HTML</h1>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html">00 - Teste</a> |
+        <a href="exercicios/texto1.html">01 - Texto</a> |
+        <a href="exercicios/texto2.html">02 - Texto</a> |
+        <a href="exercicios/listas.html">03 - Listas</a> |
+        <a href="exercicios/listaAninhada.html">04 - Lista aninhada</a> |
+        <a href="exercicios/links.html">05 - Links</a> |
+        <a href="exercicios/tabela.html">06 - Tabela</a> |
+        <a href="exercicios/form/form.html">07 - Formulário</a> |
+        <a href="exercicios/imagens.html">08 - Imagens</a> |
+        <a href="exercicios/video.html">09 - Vídeos</a> |
+        <a href="exercicios/tagsNaoVisuais.html">10 - Tags não visuais</a> |
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        <h2>Curso de Web Moderno</h2>
+    </footer>
+    <!--COMANDO PARA INICIAR O SERVER: [ http-server -c-1 . ]-->
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            const conteudo = document.querySelector('#conteudo')
+
+            link.onclick = function (e) {
+                e.preventDefault()
+
+                fetch(link.href)
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>
